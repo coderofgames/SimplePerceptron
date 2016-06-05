@@ -41,7 +41,8 @@
 
 #define stdmax(a,b) (a>b?a:b)
 
-
+//---------------------------------------------------------
+// Random number functions
 inline float RandomFloat(float min, float max)
 {
 	float r = (float)rand() / (float)RAND_MAX;
@@ -63,15 +64,19 @@ inline float RandomAngle()
 	return RandomFloat(0, 2 * PI);
 }
 
+//---------------------------------------------------------
+// quick vector object for perceptron example
 class PVector
 {
 public:
-	PVector(float X, float Y){
+	PVector(float X, float Y)
+	{
 		x = X;
 		y = Y;
 	}
 
-	PVector(){
+	PVector()
+	{
 		x = 0.0f;
 		y = 0.0f;
 	}
@@ -114,6 +119,8 @@ public:
 	float y;
 };
 
+//---------------------------------------------------------
+// distance function
 inline float dist(float x1, float y1, float x2, float y2)
 {
 	float dx = x2 - x1;
@@ -121,6 +128,8 @@ inline float dist(float x1, float y1, float x2, float y2)
 	return sqrtf(dx*dx + dy*dy);
 }
 
+//---------------------------------------------------------
+// draw a rectangle in OpenGL
 void GraphicsGL_Rect(float x, float y, float w, float h)
 {
 	glBegin(GL_LINES);
@@ -151,6 +160,9 @@ void GraphicsGL_Rect(float x, float y, float w, float h)
 using std::cout;
 using std::endl;
 
+
+//---------------------------------------------------------
+// Binary Tree
 class BinaryTreeNode
 {
 public:
@@ -197,6 +209,8 @@ public:
 	BinaryTreeNode *right;
 };
 
+//---------------------------------------------------------
+//
 class SimpleBinaryTree
 {
 public:
@@ -234,9 +248,9 @@ public:
 		BinaryTreeNode *n = node;
 
 		if (n->left)
-			TraverseInorder(n->left);
+			TraversePostorder(n->left);
 		if (n->right)
-			TraverseInorder(n->right);
+			TraversePostorder(n->right);
 		n->Visit();
 
 		return n;

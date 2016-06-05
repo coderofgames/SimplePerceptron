@@ -23,55 +23,76 @@ int height = 480;
 
 
 
+//=========================================================================
+// GLUT FUNCTIONS
+//=========================================================================
 
+//---------------------------------------------------------
+//
 void cleanup()
 {
 	example->Delete();
 }
 
-
-void setup() {
+//---------------------------------------------------------
+//
+void setup() 
+{
 	example = new  SimplePerceptronExample();
 }
 
-
-void draw() {		
+//---------------------------------------------------------
+//
+void draw() 
+{		
 	example->Draw();
 }
 
-/* Handler for window re-size event. Called back when the window first appears and
-whenever the window is re-sized with its new width and height */
-void reshape(GLsizei width, GLsizei height) {  // GLsizei for non-negative integer
+//---------------------------------------------------------
+// 
+void reshape(GLsizei width, GLsizei height) 
+{  
 	// Compute aspect ratio of the new window
 	example->reshape(width, height);
 }
 
-void display() {
+//---------------------------------------------------------
+//
+void display() 
+{
 	draw();
 }
 
-
+//---------------------------------------------------------
+//
 void mouse(int button, int state, int x, int y)
 {
 	example->mouse(button, state, x, y);
 }
 
-
+//---------------------------------------------------------
+//
 void keyboard(unsigned char key, int x, int y)
 {
 	example->keyboard(key, x, y);
 }
 
+//---------------------------------------------------------
+//
 void keyboardup(unsigned char key, int x, int y)
 {
 	example->keyboardup(key, x, y);
 }
 
+//---------------------------------------------------------
+//
 void special(int key, int x, int y) {
 
 	example->Special(key, x, y);
 }
 
+//---------------------------------------------------------
+//
 int init_resources(void)
 {
 	example->Initialize();
@@ -81,13 +102,9 @@ int init_resources(void)
 
 
 
-
-
-
-
-
-
-
+//================================================================================
+// MAIN ENTRY POINT
+//================================================================================
 
 int _tmain(int argc, char* argv[])
 {
